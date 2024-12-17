@@ -1,0 +1,69 @@
+.service-section {
+  margin-block: 4rem;
+  .service_wrapper {
+    @include flex($justify: space-between, $align: stretch);
+    @include breakpoint("xxs") {
+      @include flex($direction: column);
+      gap: 2rem;
+    }
+
+    gap: 5rem;
+    &_gallery {
+      flex: 1;
+      text-align: center;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &_description {
+      flex: 1;
+      @include flex(
+        $direction: column,
+        $justify: space-between,
+        $align: flex-start
+      );
+      
+      @include breakpoint("xxs") {
+        gap: 2rem;
+      }
+      .heading {
+        font-family: "LibreCaslon";
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 1.9rem;
+        width: 65%;
+
+        @include breakpoint("lg") {
+          width: 85%;
+        }
+
+        @include breakpoint("xxs") {
+          width: 100%;
+        }
+      }
+
+      .sub-heading {
+        margin-top: 1rem;
+        flex-grow: 1;
+        font-family: "Poppins";
+        padding-left: 4rem;
+        border-left: 4px solid $secondary-text;
+        @include flex(column, end, flex-start, nowrap);
+        font-weight: 600;
+        width: 65%;
+        gap: 2rem;
+
+        @include breakpoint("lg") {
+          font-weight: 500;
+          width: 75%;
+        }
+
+        @include breakpoint("xxs") {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

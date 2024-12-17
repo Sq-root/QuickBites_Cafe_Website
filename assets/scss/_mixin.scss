@@ -1,0 +1,48 @@
+// Mixin for flex containers with optional parameters
+@mixin flex(
+  $direction: row,
+  $justify: center,
+  $align: center,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Define mixin for breakpoints
+@mixin breakpoint($point) {
+  @if $point == "xxl" {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $point == "lg" {
+    @media (max-width: 1143px) {
+      @content;
+    }
+  } @else if $point == "md" {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $point == "sm" {
+    @media (max-width: 893px) {
+      @content;
+    }
+  } @else if $point == "xs" {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+   @else if $point == "xxs" {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+   @else if $point == "xxxs" {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+}

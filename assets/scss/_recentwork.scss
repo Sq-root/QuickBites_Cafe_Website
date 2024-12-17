@@ -1,0 +1,102 @@
+.recent_work {
+  margin-block: 5rem;
+  &_title h2 {
+    text-align: center;
+    font-size: 3.3rem;
+    font-family: "LibreCaslon";
+    margin-bottom: 2rem;
+  }
+
+  &_wrapper {
+    height: 300px;
+    @include flex($justify: space-between);
+
+    @include breakpoint("xxs") {
+      height: auto;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    &_info {
+      flex: 1 1 33%;
+      //   width: 25%;
+      @include flex(column, center, flex-start, nowrap);
+      gap: 1.4rem;
+    }
+
+    &_gallery {
+      flex: 1 1 67%;
+      height: 100%;
+      @include flex($justify: space-between);
+      @include breakpoint("xxs") {
+        flex-direction: column;
+        gap: 1rem;
+        margin-block: 2rem;
+      }
+
+      gap: 1rem;
+      img {
+        height: 100%;
+        width: 100%;
+
+        @include breakpoint("lg") {
+          height: 80%;
+        }
+
+        @include breakpoint("xxs") {
+          width: 60%;
+        }
+      }
+
+      &.order {
+        @include breakpoint("xxs") {
+          order: 1;
+        }
+      }
+    }
+
+    &_desc {
+      height: 100%;
+      flex: 1 1 33%;
+      @include breakpoint("xxs") {
+        gap: 1.4rem;
+      }
+
+      @include flex(column, space-between, flex-start, nowrap);
+      .heading {
+        font-family: "LibreCaslon";
+        font-size: 1.5rem;
+        font-weight: 500;
+        // @include breakpoint("sm") {
+        //   font-size: 1.2rem;
+        // }
+      }
+
+      .sub-heading {
+        @include flex(column, end, flex-start, nowrap);
+        font-family: "Poppins";
+        height: 70%;
+        font-size: 1rem;
+        font-weight: 600;
+        gap: 2rem;
+        // @include breakpoint("md") {
+        //   gap: 2rem;
+        // }
+      }
+    }
+  }
+
+  .wrapper_h {
+    gap: 2.5rem;
+    height: 18rem;
+    margin-top: 4rem;
+
+    @include breakpoint("md") {
+      gap: 1.5rem;
+    }
+    @include breakpoint("xxs") {
+      height: auto;
+      margin-top: 0rem;
+    }
+  }
+}

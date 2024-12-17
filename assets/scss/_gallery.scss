@@ -1,0 +1,102 @@
+.gallery-section {
+  .gallery_wrapper {
+    margin-bottom: 1rem;
+    @include flex($justify: space-between);
+    gap: 1rem;
+
+    @include breakpoint("xxs") {
+      gap: 3rem;
+      @include flex($direction: column);
+    }
+
+    .gallery-item {
+      height: 400px;
+      flex: 1; //grow 1, shrink 1, flex basis 0%
+
+      @include breakpoint("lg") {
+        height: 350px;
+      }
+
+      @include breakpoint("xxs") {
+        flex: 1 1 0;
+      }
+      img {
+        border-radius: 70px;
+        width: 100%;
+        height: 100%;
+
+        @include breakpoint("md") {
+          height: 90%;
+        }
+        @include breakpoint("xxs") {
+          height: 100%;
+        }
+      }
+
+      &.center {
+        @include flex();
+      }
+
+      &.justify-start {
+        @include flex($justify: flex-start);
+      }
+      &.order {
+        @include breakpoint("xxs") {
+          order: 1;
+        }
+      }
+    }
+
+    .gallery_description {
+      width: 50%;
+      @include flex(row, center, center, nowrap);
+      &_links {
+        .items {
+          font-size: 0.9rem;
+          color: $lightGray;
+          margin-bottom: 1rem;
+        }
+
+        .active::before {
+          position: absolute;
+          left: -27px;
+          top: 1px;
+          content: "";
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          background-image: url("../img/arrow-next-small-svgrepo-com.svg");
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+
+        .active {
+          position: relative;
+          font-weight: 600;
+          font-size: 1rem;
+          color: $primary-text;
+        }
+      }
+    }
+
+    &_info {
+      @include flex($direction: column, $align: flex-start);
+      gap: 1rem;
+
+      .external_links img {
+        width: 30px;
+        height: 30px;
+      }
+
+      p {
+        @include breakpoint("xxs") {
+          width: 80%;
+        }
+      }
+    }
+
+    .w-60 {
+      width: 55%;
+    }
+  }
+}
