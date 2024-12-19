@@ -89,8 +89,9 @@ h1 {
   line-height: 1.2rem;
 }
 
-h2 {
-  font-size: 1.875rem;
+h2,
+h2.title {
+  font-size: 2.5rem;
   line-height: 1.2;
 }
 
@@ -153,4 +154,16 @@ li {
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.heading {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: $color-text-primary;
+  font-weight: 700;
+
+  & span {
+    color: $color-btn-primary;
+  }
 }
