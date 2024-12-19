@@ -1,0 +1,23 @@
+header {
+  position: absolute;
+  border-block-end: 1px solid $color-border-light;
+  width: 100%;
+  top: 0;
+  .header {
+    @include flex($justify: center);
+    padding-block: 20px;
+    gap: 2rem;
+
+    &_title {
+      color: $color-text-inverse;
+    }
+
+    &_menu {
+      flex: 1;
+      &_links {
+        @include flex($justify: flex-end);
+        gap: 2.5rem;
+      }
+    }
+  }
+}

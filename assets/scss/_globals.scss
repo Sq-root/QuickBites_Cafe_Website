@@ -39,12 +39,8 @@ body {
 // Spacing
 .container {
   max-width: 1200px;
-  padding-inline: 1.4rem;
   margin: 0 auto;
-
-  @include breakpoint("lg") {
-    padding-inline: 1.7rem;
-  }
+  // padding-inline: 1.4rem;
 
   // &--pall {
   //   padding-top: 4.375rem;
@@ -166,4 +162,8 @@ li {
   & span {
     color: $color-btn-primary;
   }
+}
+
+.span {
+  color: $color-btn-primary;
 }
