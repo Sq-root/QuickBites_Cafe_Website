@@ -1,12 +1,12 @@
 header {
   position: absolute;
   border-block-end: 1px solid $color-border-light;
+  padding-block: 20px;
   width: 100%;
   top: 0;
   z-index: 1;
   .header {
     @include flex($justify: center);
-    padding-block: 20px;
     gap: 2rem;
 
     &_title {
