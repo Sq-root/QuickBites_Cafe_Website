@@ -2,9 +2,12 @@
   background-color: $color-bg-secondary;
   @include flex();
   .food_item_wrapper {
-    @include flex();
+    @include flex($justify: space-between);
+    padding-bottom: 2rem;
     gap: 1.2rem;
     margin: 8rem auto;
+    overflow-x: auto;
+    scroll-snap-type: inline mandatory;
 
     .card {
       @include flex($direction: column);
@@ -17,6 +20,7 @@
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       background-color: $color-white;
+      z-index: 0;
 
       & .card-img {
         z-index: 2;
@@ -33,22 +37,50 @@
         font-weight: 600;
       }
 
+      &:hover .card-title,
+      &:hover .card-desc {
+        color: $color-text-inverse; /* Change all text to white on hover */
+      }
+
+      &:hover .card-header img {
+        filter: invert(1) sepia(1) saturate(5);
+      }
+
+      &:hover::after {
+        height: 100%;
+        transition: all 0.2s ease-in-out;
+        clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 100%);
+      }
+
       &::after {
         content: "";
         position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        bottom: 0px;
         width: 100%;
         height: 150px;
         background-color: $color-btn-primary;
-        z-index: 1;
-
-        &:hover {
-          background-color: $color-border-light;
-          transition: background-color 0.3s ease-in-out;
-        }
+        z-index: -1;
+        clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0 100%);
       }
     }
+  }
+
+  .has-scrollbar::-webkit-scrollbar {
+    height: 12px;
+  }
+
+  .has-scrollbar::-webkit-scrollbar-button {
+    width: calc(25% - 40px);
+  }
+
+  .has-scrollbar::-webkit-scrollbar-track {
+    outline: 2px solid $color-btn-primary;
+    background-color: $color-text-inverse;
+    border-radius: 50px;
+  }
+
+  .has-scrollbar::-webkit-scrollbar-thumb {
+    border: 3px solid $color-btn-primary;
+    border-radius: 50px;
   }
 }
