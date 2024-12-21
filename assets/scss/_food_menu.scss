@@ -1,6 +1,8 @@
 .food_item_section {
+  position: relative;
   background-color: $color-bg-secondary;
   @include flex();
+
   .food_item_wrapper {
     @include flex($justify: space-between);
     padding-bottom: 2rem;
@@ -82,5 +84,54 @@
   .has-scrollbar::-webkit-scrollbar-thumb {
     border: 3px solid $color-btn-primary;
     border-radius: 50px;
+  }
+}
+
+.promo_section {
+  position: relative;
+  @include flex();
+
+  .promo_wrapper {
+    @include flex($justify: space-between);
+    padding: 3rem 0;
+    gap: 2rem;
+    margin: 5rem auto;
+
+    .promo_figure {
+      text-align: center;
+      flex: 1;
+    }
+
+    .promo_content {
+      flex: 1;
+      @include flex(
+        $direction: column,
+        $justify: flex-start,
+        $align: flex-start
+      );
+      gap: 1.1rem;
+
+      .promo-heading{
+        width: 80%;
+      }
+
+      .promo-features {
+        @include flex(
+          $direction: column,
+          $justify: flex-start,
+          $align: flex-start
+        );
+        gap: 0.8rem;
+        font-weight: 500;
+        margin-left: 1rem;
+
+        .promo-feature-item {
+          list-style: disc;
+          &::marker {
+            color: $color-btn-primary;
+          }
+        }
+      }
+    }
   }
 }
