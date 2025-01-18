@@ -1,0 +1,6 @@
+.discount-section {
+    background-image: url('');
+  &-wrapper {
+    @include flex($justify: space-between, $align: center);
+  }
+}
